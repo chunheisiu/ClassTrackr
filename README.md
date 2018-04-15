@@ -1,0 +1,2 @@
+# ClassTrackr
+Dashboard for Classes 🎓
