@@ -25,6 +25,7 @@ a {
   font-size: 150%;
   text-align: center;
   transition: filter .25s ease;
+  text-decoration: none;
 }
 
 .box-content {

@@ -41,6 +41,7 @@ function requestClass(term, c) {
 
 function parseClass(response) {
   var name = response.match(/<table  CLASS="datadisplaytable" SUMMARY="This table is used to present the detailed class information." width="100%"><caption class="captiontext">Detailed Class Information<\/caption>\n<tr>\n<th CLASS="ddlabel" scope="row" >(.+)<br \/><br \/><\/th>/)[1];
+  var link = ("https://iris2.usfca.edu" + response.match(/<a href="(.+)">View Catalog Entry<\/a>/)[1]).replace(/&amp;/g, "&");
   var seatsStrArr = response.match(/<td CLASS="dddefault">(\d+)<\/td>/g);
   var seatsArr = [];
   for (i in seatsStrArr) {
@@ -52,25 +53,30 @@ function parseClass(response) {
   var capWait = seatsArr[3];
   var actWait = seatsArr[4];
   var remWait = seatsArr[5];
-  var resultArr = [name, cap, act, rem, capWait, actWait, remWait];
+  var resultArr = [name, cap, act, rem, capWait, actWait, remWait, link];
   return resultArr;
 }
 
 function createTile(c) {
-  var div = document.createElement("div");
-  div.setAttribute("class", "box");
-  div.setAttribute("id", ("crn_" + c));
+  var anchor = document.createElement("a");
+  anchor.setAttribute("id", ("crn_" + c));
+  anchor.setAttribute("class", "box");
+  anchor.setAttribute("href", "#");
+  document.getElementById("container").appendChild(anchor);
+
   var html;
   html = "<div class='box-content'>";
   html += "<span class='classCode'>" + c + "</span><br><br>";
   html += "<span class='classSeat'>––/–– Seats Remaining</span><br>";
   html += "</div>";
-  div.innerHTML = html;
-  document.getElementById("container").appendChild(div);
+
+  anchor.innerHTML = html;
 }
 
 function updateTile(c, classArr) {
   var div = document.getElementById(("crn_" + c));
+  div.setAttribute("href", classArr[7]);
+  div.setAttribute("target", "_blank");
   var percent = +classArr[3] / +classArr[1];
   var status = "";
 
