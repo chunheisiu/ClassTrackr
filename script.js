@@ -22,7 +22,8 @@ function loadClasses() {
 
 function requestClass(term, c) {
   var xmlhttp = new XMLHttpRequest();
-  var url = "https://cors.io/?";
+  //var url = "https://cors.io/?";
+  var url = "https://cors-anywhere.herokuapp.com/";
   url += urlPre + urlTerm + term + "&" + urlClass + c;
   xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
