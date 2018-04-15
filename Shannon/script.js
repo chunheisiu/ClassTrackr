@@ -88,7 +88,9 @@ function updateTile(c, classArr, cName) {
   var percent = +classArr[3] / +classArr[1];
   var status = "";
 
-  if (percent <= 0.25) {
+  if (percent == 0) {
+    status = " full";
+  } else if (percent <= 0.25) {
     status = " bad";
   } else if (percent <= 0.5) {
     status = " mid";
@@ -114,18 +116,6 @@ function updateTile(c, classArr, cName) {
   setTimeout(function() {
     div.removeAttribute("style");
   }, 500)
-}
-
-function getQueryVariable(variable) {
-    var query = window.location.search.substring(1);
-    var vars = query.split('&');
-    for (var i = 0; i < vars.length; i++) {
-        var pair = vars[i].split('=');
-        if (decodeURIComponent(pair[0]) == variable) {
-            return decodeURIComponent(pair[1]);
-        }
-    }
-    return null;
 }
 
 function on() {

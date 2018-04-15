@@ -81,7 +81,9 @@ function updateTile(c, classArr) {
   var percent = +classArr[3] / +classArr[1];
   var status = "";
 
-  if (percent <= 0.25) {
+  if (percent == 0) {
+    status = " full";
+  } else if (percent <= 0.25) {
     status = " bad";
   } else if (percent <= 0.5) {
     status = " mid";
