@@ -62,7 +62,7 @@ function createTile(c) {
   div.setAttribute("id", ("crn_" + c));
   var html;
   html = "<div class='box-content'>";
-  html += "<span class='classTitle'>" + c + "</span><br><br>";
+  html += "<span class='classCode'>" + c + "</span><br><br>";
   html += "<span class='classSeat'>––/–– Seats Remaining</span><br>";
   html += "</div>";
   div.innerHTML = html;
@@ -84,9 +84,13 @@ function updateTile(c, classArr) {
 
   div.setAttribute("class", "box" + status);
 
+  var nameStr = classArr[0].match(/(.+) - (\d{5}) - (.+)/);
+
   var html;
   html = "<div class='box-content'>";
-  html += "<span class='classTitle'>" + classArr[0] + "</span><br><br>";
+  html += "<span class='classCode'>" + nameStr[2] + "</span><br><br>";
+  html += "<span class='classTitle'>" + nameStr[3] + "</span><br>";
+  html += "<span class='classTitle'>" + nameStr[1] + "</span><br><br>";
   html += "<span class='classSeat'>" + classArr[3] + "/" + classArr[1] + " Seats Remaining</span><br>";
   html += "</div>";
   div.innerHTML = html;

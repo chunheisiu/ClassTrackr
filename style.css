@@ -50,7 +50,7 @@ a {
   border-color: firebrick;
 }
 
-.stocktitle {
+.classCode {
   font-weight: bold;
 }
 
@@ -75,6 +75,10 @@ a {
 
 .star {
   margin-right: .5em;
+}
+
+.col-legend {
+  font-size: smaller;
 }
 
 .toolbar {
