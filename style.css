@@ -22,7 +22,7 @@ a {
   background-color: gray;
   border: 2px solid dimgray;
   border-radius: 10px;
-  font-size: 200%;
+  font-size: 150%;
   text-align: center;
   transition: filter .25s ease;
 }
@@ -56,10 +56,10 @@ a {
 
 .author {
   left: 50%;
-  line-height: 10%;
   padding: 0 2em;
   position: absolute;
   top: 50%;
+  width: 100%;
   transform: translate(-50%, -50%);
 }
 
@@ -77,8 +77,15 @@ a {
   margin-right: .5em;
 }
 
-.col-legend {
+.col-legend-item {
   font-size: smaller;
+  list-style: none;
+  padding: .5em 0;
+  margin-right: 2em;
+}
+
+h5, h6 {
+  margin: 0;
 }
 
 .toolbar {
@@ -87,7 +94,6 @@ a {
 }
 
 #overlay {
-  line-height: 10%;
   font-size: 150%;
   background-color: rgba(0,0,0,0.85); /* Black background with opacity */
   position: fixed; /* Sit on top of the page content */
