@@ -14,7 +14,7 @@ a {
   display: grid;
   grid-column-gap: 10px;
   grid-row-gap: 10px;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   margin-top: 2vh;
 }
 
@@ -22,10 +22,14 @@ a {
   background-color: gray;
   border: 2px solid dimgray;
   border-radius: 10px;
-  font-size: 150%;
+  font-size: 125%;
   text-align: center;
   transition: filter .25s ease;
   text-decoration: none;
+}
+
+.box:hover {
+  filter: brightness(1.25);
 }
 
 .box-content {
