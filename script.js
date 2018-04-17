@@ -2,7 +2,7 @@ const urlPre = "https://iris2.usfca.edu/prod/bwckschd.p_disp_detail_sched?";
 const urlTerm = "term_in=";
 const urlClass = "crn_in=";
 
-const reloadTime = 20000;
+const reloadTime = 60000;
 
 var classes, term;
 
