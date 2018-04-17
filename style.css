@@ -77,17 +77,17 @@ a {
   transform: translate(-50%, -50%);
 }
 
-.about, .star {
+.about, .star, .refresh {
   cursor: pointer;
   filter: opacity(0.5);
   transition: filter .25s ease;
 }
 
-.about:hover, .star:hover {
+.about:hover, .star:hover, .refresh:hover {
   filter: opacity(1);
 }
 
-.star {
+.star, .refresh {
   margin-right: .5em;
 }
 

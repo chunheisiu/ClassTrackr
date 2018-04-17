@@ -4,7 +4,10 @@ const urlClass = "crn_in=";
 
 const urlClasses = "classes.txt";
 
-var classes;
+const reloadTime = 60000;
+
+var classes, term;
+term = "201840";
 
 function init() {
   loadClassesWithTxt();
@@ -19,7 +22,7 @@ function loadClassesWithTxt() {
         cCode = c.split(',')[0];
         cName = c.split(',')[1];
         createTile(cCode);
-        requestClass("201840", cCode, cName);
+        requestClass(cCode, cName);
       }
     }
   };
@@ -27,7 +30,22 @@ function loadClassesWithTxt() {
   xmlhttp.send();
 }
 
-function requestClass(term, c, cName) {
+function reload() {
+  setTimeout(function() {
+    refresh();
+    reload();
+  }, reloadTime);
+}
+
+function refresh() {
+  for (var c of classes) {
+    cCode = c.split(',')[0];
+    cName = c.split(',')[1];
+    requestClass(cCode, cName);
+  }
+}
+
+function requestClass(c, cName) {
   var xmlhttp = new XMLHttpRequest();
   //var url = "https://cors.io/?";
   var url = "https://cors-anywhere.herokuapp.com/";

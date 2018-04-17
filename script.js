@@ -2,25 +2,41 @@ const urlPre = "https://iris2.usfca.edu/prod/bwckschd.p_disp_detail_sched?";
 const urlTerm = "term_in=";
 const urlClass = "crn_in=";
 
-var classes;
+const reloadTime = 20000;
+
+var classes, term;
 
 function init() {
   loadClasses();
+  reload();
 }
 
 function loadClasses() {
-  var term = getQueryVariable("term");
+  term = getQueryVariable("term");
   var classList = getQueryVariable("classes");
   if (classList != null) {
     classes = classList.split(',');
     for (var c of classes) {
       createTile(c);
-      requestClass(term, c);
+      requestClass(c);
     }
   }
 }
 
-function requestClass(term, c) {
+function reload() {
+  setTimeout(function() {
+    refresh();
+    reload();
+  }, reloadTime);
+}
+
+function refresh() {
+  for (var c of classes) {
+    requestClass(c);
+  }
+}
+
+function requestClass(c) {
   var xmlhttp = new XMLHttpRequest();
   //var url = "https://cors.io/?";
   var url = "https://cors-anywhere.herokuapp.com/";
@@ -120,6 +136,28 @@ function getQueryVariable(variable) {
         }
     }
     return null;
+}
+
+function notify() {
+  var noti_title = "ClassTrackr";
+  var noti_body = "shoho";
+
+  var noti_options = {
+    body: noti_body,
+    icon: "grad.png"
+  }
+
+  if (!("Notification" in window)) {
+    console.log("This browser does not support desktop notification");
+  } else if (Notification.permission === "granted") {
+    var notification = new Notification(noti_title, noti_options);
+  } else if (Notification.permission !== "denied") {
+    Notification.requestPermission(function (permission) {
+      if (permission === "granted") {
+        var notification = new Notification(noti_title, noti_options);
+      }
+    });
+  }
 }
 
 function on() {
