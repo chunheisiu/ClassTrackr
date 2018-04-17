@@ -32,6 +32,10 @@ a {
   filter: brightness(1.25);
 }
 
+.box:active {
+  filter: brightness(0.75);
+}
+
 .box-content {
   left: 50%;
   padding: 1rem 0;
