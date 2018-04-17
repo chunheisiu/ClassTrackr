@@ -57,7 +57,7 @@ function requestClass(c, cName) {
         var classArr = parseClass(response);
         updateTile(c, classArr, cName);
       } catch (e) {
-        //requestClass(term, c);
+        requestClass(c, cName);
       }
     }
   };

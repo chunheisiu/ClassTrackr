@@ -48,7 +48,7 @@ function requestClass(c) {
         var classArr = parseClass(response);
         updateTile(c, classArr);
       } catch (e) {
-        //requestClass(term, c);
+        requestClass(c);
       }
     }
   };
