@@ -7,7 +7,7 @@ const urlClasses = "classes.txt";
 const reloadTime = 60000;
 
 var classes, term;
-term = "201840";
+term = "201920";
 
 function init() {
   loadClassesWithTxt();
