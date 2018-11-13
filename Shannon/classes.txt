@@ -12,3 +12,18 @@
 42404,TBA
 42405,TBA PM Shift
 42406,TBA PM Shift
+
+20108,highland
+20109,SF general
+20110,Seton
+20111,Mills penn
+20112,CPMC PM
+20113,CPMC
+20114,Kaiser PM
+20115,cpmc
+20116,UCSF
+20117,kaiser pm
+20118,sequoia
+20119,San Mateo 
+20448,cpmc
+20448,cpmc pm
