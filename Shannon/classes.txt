@@ -1,18 +1,3 @@
-40093,UCSF Langley Porter
-40094,TBA
-40095,John George
-40096,SF General
-40097,St. Mary's
-40098,John George
-40099,Stanford
-40100,TBA
-40101,UCSF Langley Porter
-40102,San Mateo Med Ctr
-40103,San Mateo Med Ctr
-42404,TBA
-42405,TBA PM Shift
-42406,TBA PM Shift
-
 20108,highland
 20109,SF general
 20110,Seton
