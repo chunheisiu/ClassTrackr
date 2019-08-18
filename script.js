@@ -7,8 +7,33 @@ const reloadTime = 60000;
 var classes, term;
 
 function init() {
+  generateSemesters();
   loadClasses();
   reload();
+}
+
+function generateSemesters() {
+  term = getQueryVariable("term");
+
+  var dt = new Date();
+  var year = dt.getFullYear();
+  var yearList = [year - 1, year, year + 1];
+  var termList = {Fall: 40, Intersession: 10, Spring: 20, Summer: 30};
+  var dropdown = document.getElementById("semester");
+  for (var yearElem of yearList) {
+    for (var termKey in termList) {
+      var el = document.createElement("option");
+      el.textContent = termKey + " " + yearElem.toString();
+      el.value = yearElem.toString() + termList[termKey].toString();
+
+      if (term && term == el.value) {
+        el.selected = "selected"
+        dropdown.disabled = "disabled"
+      }
+
+      dropdown.appendChild(el);
+    }
+  }
 }
 
 function loadClasses() {
@@ -24,7 +49,7 @@ function loadClasses() {
 }
 
 function reload() {
-  setTimeout(function() {
+  setTimeout(function () {
     refresh();
     reload();
   }, reloadTime);
@@ -41,7 +66,7 @@ function requestClass(c) {
   //var url = "https://cors.io/?";
   var url = "https://cors-anywhere.herokuapp.com/";
   url += urlPre + urlTerm + term + "&" + urlClass + c;
-  xmlhttp.onreadystatechange = function() {
+  xmlhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       var response = this.responseText;
       try {
@@ -121,51 +146,62 @@ function updateTile(c, classArr) {
   div.innerHTML = html;
 
   div.setAttribute("style", "filter: brightness(1.5);");
-  setTimeout(function() {
+  setTimeout(function () {
     div.removeAttribute("style");
   }, 500)
 }
 
 function getQueryVariable(variable) {
-    var query = window.location.search.substring(1);
-    var vars = query.split('&');
-    for (var i = 0; i < vars.length; i++) {
-        var pair = vars[i].split('=');
-        if (decodeURIComponent(pair[0]) == variable) {
-            return decodeURIComponent(pair[1]);
-        }
+  var query = window.location.search.substring(1);
+  var vars = query.split('&');
+  for (var i = 0; i < vars.length; i++) {
+    var pair = vars[i].split('=');
+    if (decodeURIComponent(pair[0]) == variable) {
+      return decodeURIComponent(pair[1]);
     }
-    return null;
+  }
+  return null;
 }
 
-function notify() {
-  var noti_title = "ClassTrackr";
-  var noti_body = "shoho";
-
-  var noti_options = {
-    body: noti_body,
-    icon: "grad.png"
-  }
-
-  if (!("Notification" in window)) {
-    console.log("This browser does not support desktop notification");
-  } else if (Notification.permission === "granted") {
-    var notification = new Notification(noti_title, noti_options);
-  } else if (Notification.permission !== "denied") {
-    Notification.requestPermission(function (permission) {
-      if (permission === "granted") {
-        var notification = new Notification(noti_title, noti_options);
-      }
-    });
+function add() {
+  var semesterDropdown = document.getElementById("semester");
+  var semester = semesterDropdown.options[semesterDropdown.selectedIndex].value
+  var clsCode = document.getElementById("classCode").value;
+  if (!term && clsCode != "") {
+    window.location.replace("../?term=" + semester + "&classes=" + clsCode)
+  } else if (term) {
+    window.location.replace(window.location + "," + clsCode)
   }
 }
+
+// function notify() {
+//   var noti_title = "ClassTrackr";
+//   var noti_body = "shoho";
+//
+//   var noti_options = {
+//     body: noti_body,
+//     icon: "grad.png"
+//   }
+//
+//   if (!("Notification" in window)) {
+//     console.log("This browser does not support desktop notification");
+//   } else if (Notification.permission === "granted") {
+//     var notification = new Notification(noti_title, noti_options);
+//   } else if (Notification.permission !== "denied") {
+//     Notification.requestPermission(function (permission) {
+//       if (permission === "granted") {
+//         var notification = new Notification(noti_title, noti_options);
+//       }
+//     });
+//   }
+// }
 
 function on() {
-    document.getElementById("overlay").style.display = "block";
+  document.getElementById("overlay").style.display = "block";
 }
 
 function off() {
-    document.getElementById("overlay").style.display = "none";
+  document.getElementById("overlay").style.display = "none";
 }
 
 init();

@@ -1,123 +1,154 @@
 body {
-  background-color: #555;
-  color: #fff;
-  font-family: "Avenir Next", sans-serif;
-  padding: 1em;
-  text-align: center;
+    background-color: #555;
+    color: #fff;
+    font-family: "Avenir Next", sans-serif;
+    padding: 1em;
+    text-align: center;
 }
 
 a {
-  color: #fff;
+    color: #fff;
 }
 
 .container {
-  display: grid;
-  grid-column-gap: 10px;
-  grid-row-gap: 10px;
-  grid-template-columns: repeat(4, 1fr);
-  margin-top: 2vh;
+    display: grid;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 5em;
 }
 
 .box {
-  background-color: gray;
-  border: 2px solid dimgray;
-  border-radius: 10px;
-  font-size: 125%;
-  text-align: center;
-  transition: filter .25s ease;
-  text-decoration: none;
+    background-color: gray;
+    border: 2px solid dimgray;
+    border-radius: 10px;
+    font-size: 125%;
+    text-align: center;
+    transition: filter .25s ease;
+    text-decoration: none;
 }
 
 .box:hover {
-  filter: brightness(1.25);
+    filter: brightness(1.25);
 }
 
 .box:active {
-  filter: brightness(0.75);
+    filter: brightness(0.75);
 }
 
 .box-content {
-  left: 50%;
-  padding: 1rem 0;
-  position: relative;
-  top: 50%;
-  transform: translate(-50%, -50%);
+    left: 50%;
+    padding: 1rem 0;
+    position: relative;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .good {
-  background-color: seagreen;
-  border-color: green;
+    background-color: seagreen;
+    border-color: green;
 }
 
 .mid {
-  background-color: goldenrod;
-  border-color: darkgoldenrod;
+    background-color: goldenrod;
+    border-color: darkgoldenrod;
 }
 
 .bad {
-  background-color: crimson;
-  border-color: firebrick;
+    background-color: crimson;
+    border-color: firebrick;
 }
 
 .full {
-  background-color: #222;
-  border-color: #202020;
+    background-color: #222;
+    border-color: #202020;
 }
 
 .classCode {
-  font-weight: bold;
+    font-weight: bold;
 }
 
 .author {
-  left: 50%;
-  padding: 0 2em;
-  position: absolute;
-  top: 50%;
-  width: 100%;
-  transform: translate(-50%, -50%);
+    left: 50%;
+    padding: 0 2em;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
 }
 
-.about, .star, .refresh {
-  cursor: pointer;
-  filter: opacity(0.5);
-  transition: filter .25s ease;
+.search-bar {
+    position: absolute;
+    left: 2em;
+    margin-top: .5em;
 }
 
-.about:hover, .star:hover, .refresh:hover {
-  filter: opacity(1);
+.text-box {
+    font-size: 100%;
+    font-family: "Avenir Next", sans-serif;
+    color: #fff;
+    display: inline-block;
+    border-radius: 1em;
+    border: none;
+    background-color: #444;
+    width: 12em;
+    height: 30px;
+    padding: 0 1em;
+    margin: 0 .5em 0 0;
+    vertical-align: 30%;
+}
+
+.dropdown {
+  text-decoration: none;
+}
+
+.btn {
+    position: absolute;
+    right: 2em;
+    margin-top: .5em;
+}
+
+.about, .star, .refresh, .add {
+    display: inline-block;
+    cursor: pointer;
+    filter: opacity(0.5);
+    transition: filter .25s ease;
+}
+
+.about:hover, .star:hover, .refresh:hover, .add:hover {
+    filter: opacity(1);
 }
 
 .star, .refresh {
-  margin-right: 1em;
+    margin-right: 1em;
 }
 
 .col-legend-item {
-  font-size: smaller;
-  list-style: none;
-  padding: .5em 0;
-  margin-right: 2em;
+    font-size: smaller;
+    list-style: none;
+    padding: .5em 0;
+    margin-right: 2em;
 }
 
 h5, h6 {
-  margin: 0;
+    margin: 0;
 }
 
 .toolbar {
-  text-align: right;
-  margin: .5em 1em 0 0;
+    text-align: left;
 }
 
 #overlay {
-  font-size: 150%;
-  background-color: rgba(0,0,0,0.85); /* Black background with opacity */
-  position: fixed; /* Sit on top of the page content */
-  display: none; /* Hidden by default */
-  width: 100%; /* Full width (cover the whole page) */
-  height: 100%; /* Full height (cover the whole page) */
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
-  cursor: pointer; /* Add a pointer on hover */
+    font-size: 150%;
+    background-color: rgba(0, 0, 0, 0.85); /* Black background with opacity */
+    position: fixed; /* Sit on top of the page content */
+    display: none; /* Hidden by default */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
 }
