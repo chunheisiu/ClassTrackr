@@ -5,7 +5,7 @@ This repository contains the source files for ClassTrackr, a client-side only we
 ![Screenshot](screenshots/screenshot.png)
 
 ### Instructions
-To add a class that you wish to display in the dashboard, select the term/semester and enter its class code (CRN) in the text box and click the "Plus" sign. Alternatively, supplied the term/semester and the list of class codes, comma-separated, in the URL in the following format:
+To add a class that you wish to display in the dashboard, select the term/semester and enter its class code (CRN) in the text box and click the "Plus" sign. Alternatively, supply the term/semester and the list of class codes, comma-separated, in the URL in the following format:
 
 `https://classtrackr.chunheisiu.com/?term=<term>&classes=<crn1>,<crn2>...`
 
