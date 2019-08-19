@@ -167,10 +167,13 @@ function add() {
   var semesterDropdown = document.getElementById("semester");
   var semester = semesterDropdown.options[semesterDropdown.selectedIndex].value
   var clsCode = document.getElementById("classCode").value;
-  if (!term && clsCode != "") {
-    window.location.replace("../?term=" + semester + "&classes=" + clsCode)
-  } else if (term) {
-    window.location.replace(window.location + "," + clsCode)
+
+  if (clsCode != "") {
+    if (!term) {
+      window.location.replace("../?term=" + semester + "&classes=" + clsCode)
+    } else {
+      window.location.replace(window.location + "," + clsCode)
+    }
   }
 }
 
