@@ -18,7 +18,7 @@ function generateSemesters() {
   var dt = new Date();
   var year = dt.getFullYear();
   var yearList = [year - 1, year, year + 1];
-  var termList = {Fall: 40, Intersession: 10, Spring: 20, Summer: 30};
+  var termList = {Intersession: 10, Spring: 20, Summer: 30, Fall: 40};
   var dropdown = document.getElementById("semester");
   for (var yearElem of yearList) {
     for (var termKey in termList) {
